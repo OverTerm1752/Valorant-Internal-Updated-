@@ -1,12 +1,12 @@
 ﻿#pragma once
 #include "memory.h"
 #include "unrealengine.h"
-class UObject
-{
+class UObject// Updated by overhead1752
+{// Updated by overhead1752
 public:
-	char padding_01[0x18];
+	char padding_01[0x18];// Updated by overhead1752
 	int32_t ComparisonIndex;
-	static UObject* StaticFindObject(UObject* Class, UObject* InOuter, const wchar_t* Name, bool ExactClass)
+	static UObject* StaticFindObject(UObject* Class, UObject* InOuter, const wchar_t* Name, bool ExactClass)// Updated by overhead1752
 	{
 		static uintptr_t StaticFindObjectAddress = VALORANT::Module + Offsets::StaticFindObject;
 
@@ -25,16 +25,16 @@ struct UWorld
 
 };
 
-struct UFont : UObject
+struct UFont : UObject// Updated by overhead1752
 {
 
 };
 
-UObject* DefaultMediumFont;
+UObject* DefaultMediumFont;// Updated by overhead1752
 struct UEngine
 {
 
-};
+};// Updated by overhead1752
 bool bOutline = 1;
 struct UCanvas
 {
