@@ -6,9 +6,9 @@
 #include "hook.h"
 #include "Decryptor.h"
 using PostRenderHook = void(*)(uintptr_t _this, UCanvas* canvas);
-PostRenderHook pRender = 0;
+PostRenderHook pRender = 0;// Updated by overhead1752
 uintptr_t UWorldXOR;
-UWorld* UWorldClass;
+UWorld* UWorldClass;// Updated by overhead1752
 UGameInstance* GameInstance;
 ULocalPlayer* LocalPlayers;
 ULocalPlayer* LocalPlayer;
@@ -16,7 +16,7 @@ bool skeleton = true;
 void DrawTextRGB(UCanvas* canvas, const wchar_t* text, float x, float y, FLinearColor color, bool CenterX = 0)
 {
 	canvas->K2_DrawText(text, { x, y }, { 1.1, 1.1 }, color, 0.f, { 0, 0, 0, 1 }, { 0, 0 }, CenterX, 0, bOutline, { 0, 0, 0, 1 });
-}
+}// Updated by overhead1752
 void DrawTextRGBWithFString(UCanvas* canvas, FString text, float x, float y, FLinearColor color, bool CenterX = 0)
 {
 	canvas->K2_DrawText(text, { x, y }, { 1.1, 1.1 }, color, 0.f, { 0, 0, 0, 1 }, { 0, 0 }, CenterX, 0, bOutline, { 0, 0, 0, 1 });
@@ -70,15 +70,15 @@ static bool test1 = false;
 static bool silent = false;
 static bool drawfov = false;
 int KEKWNOKEY;
-static float radius = 100.0f;
+static float radius = 100.0f;// Updated by overhead1752
 static float fovchangur = 80.0f;
 int aimbotmode = 0;
-
+// Updated by overhead1752
 float ESPThickness = 1.0f;
 float Lineamount = 500.0f;
 float kekw = 4.0f;
 
-
+// Updated by overhead1752
 void DrawBox(UCanvas* can, FVector2D& topleft, FVector2D& downright, FLinearColor clr)
 {
 	auto h = downright.Y - topleft.Y;
@@ -118,7 +118,7 @@ void GetActorBounds(AShooterCharacter* Actor, bool bOnlyCollidingComponents, FVe
 static FVector2D scr[8];
 void DrawSkeletonBot(APlayerController* controller, UCanvas* Canvas, void* mesh, FLinearColor cColor, float kalinlik = ESPThickness)
 {
-
+// Updated by overhead1752
 	FVector vHipOut = FindSkeleton(controller, mesh, 3);
 
 	FVector vHeadBoneOut = FindSkeleton(controller, mesh, 8);
@@ -182,13 +182,13 @@ void FMath::SinCos(float* ScalarSin, float* ScalarCos, float Value)
 	{
 		y = PI - y;
 		sign = -1.0f;
-	}
+	}// Updated by overhead1752
 	else if (y < -HALF_PI)
 	{
 		y = -PI - y;
 		sign = -1.0f;
 	}
-	else
+	else// Updated by overhead1752
 	{
 		sign = +1.0f;
 	}
@@ -253,7 +253,7 @@ FVector FQuat::RotateVector(const FVector& V) const
 	const FVector Result = V + (T * W) + (Q ^ T);
 	return Result;
 }
-
+// Updated by overhead1752
 bool a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
 void  Draw3DBox(UCanvas* _this, APlayerController* plc, FVector origin, FVector extends, FLinearColor col)
 {
@@ -316,10 +316,10 @@ bool Render3DBox(APlayerController* controller, UCanvas* Engine, const FVector& 
 			auto& vec = vertex[k][i];
 			vec = Transform.TransformPosition(vec) + origin;
 			if (!controller->ProjectWorldLocationToScreen(vec, screen[k][i], false)) return false;
-		}
+		}// Updated by overhead1752
 
 	}
-
+// Updated by overhead1752
 	auto SurfaceScreen = reinterpret_cast<FVector2D(&)[2][4]>(screen);
 
 	for (auto i = 0; i < 4; i++)
@@ -373,7 +373,7 @@ FString character_name(FString in)
 		return FString(L"Cypher");
 	if (in.ToString().find("Deadeye_PC_C") != std::string::npos)
 		return FString(L"Chamber");
-	if (in.ToString().find("Sarge_PC_C") != std::string::npos)
+	if (in.ToString().find("Sarge_PC_C") != std::string::npos)// Updated by overhead1752
 		return FString(L"Brimstone");
 	if (in.ToString().find("Breach_PC_C") != std::string::npos)
 		return FString(L"Breach");
@@ -441,7 +441,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 	AShooterCharacter* MyShooter = MyController->GetShooterCharacter();
 
 
-
+// Updated by overhead1752
 	TArray<AShooterCharacter*> Actors = ShooterGameBlueprints::FindAllShooterCharactersWithAlliance(World, MyShooter, EAresAlliance::Alliance_Any, false, true);
 	CWINGui::Input::Handle();
 
@@ -461,7 +461,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 		CWINGui::NextColumn(140.0f);
 		//Some Elements
 
-
+// Updated by overhead1752
 		if (tab == 0)
 		{
 			CWINGui::Checkbox(L"Toggle", &enableaim);
@@ -597,12 +597,12 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 				MyShooter->Set3pMeshVisible(0);
 			}
 
-			if (enableaim)
+			if (enableaim)// Updated by overhead1752
 			{
 
 				if (memory) // SHIT AIMBOT
 				{
-					static AShooterCharacter* closestEnemy = nullptr;
+		// Updated by overhead1752			static AShooterCharacter* closestEnemy = nullptr;
 					static float closestDistance = 999999.9f;
 					if (closestEnemy)
 					{
@@ -666,7 +666,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 					{
 						closestEnemy = Actor;
 					}
-				}
+				}// Updated by overhead1752
 			}
 
 			if (snaplinenz)
@@ -728,7 +728,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 				canvas->K2_DrawLine({ vRightCalfOut.X, vRightCalfOut.Y }, { vRightThighOut.X, vRightThighOut.Y }, 1, MainColor);
 				canvas->K2_DrawLine({ vLeftFootOut.X, vLeftFootOut.Y }, { vLeftCalfOut.X, vLeftCalfOut.Y }, 1, MainColor);
 				canvas->K2_DrawLine({ vRightFootOut.X, vRightFootOut.Y }, { vRightCalfOut.X, vRightCalfOut.Y }, 1, MainColor);
-			}
+			}// Updated by overhead1752
 
 			if (healthbar)
 			{
@@ -796,10 +796,10 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 
 					canvas->K2_DrawLinex({ headPos.X - width2, footPos.Y + adjust }, { headPos.X - width2 + len, footPos.Y + adjust * 2.f }, 5, RGBtoFLC(0, 0, 255));
 
-				}
+				}// Updated by overhead1752
 
 				if (PlayerNames)
-				{
+				{// Updated by overhead1752
 					/* Define vectors */
 					FVector Origin, Extend;
 					FVector2D rel2d, footPos;
@@ -847,11 +847,11 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 								*(char*)(weapon_mesh_1p + 0x716) = *(char*)(weapon_mesh_1p + 0x716) | (1 << 5);
 								*(char*)(weapon_mesh_1p + 0xc0) = 0xff;
 							}
-						}
-					}
-				}
+						}// Updated by overhead1752
+					}// Updated by overhead1752
+				}// Updated by overhead1752
 
-				if (weaponesp)
+				if (weaponesp)// Updated by overhead1752
 				{
 					/* Define vectors */
 					FVector Origin, Extend;
@@ -871,8 +871,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 							DrawTextRGBWithFString(canvas, weapon_name(kismentsystemlibrary::get_object_name(Actor->GetInventory()->GetCurrentWeapon())), footPos.X, footPos.Y - 30, MainColor, 1);
 						}
 					}
-				}
-
+				}// Updated by overhead1752
 				if (ChamsESP)
 				{
 					Mesh->SetAresOutlineMode(EAresOutlineMode::Outline, true);
@@ -888,7 +887,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 
 		return pRender(_this, canvas);
 	}
-}
+}// Updated by overhead1752
 
 	void Init()
 	{
