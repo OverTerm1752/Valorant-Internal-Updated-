@@ -1,6 +1,10 @@
 #pragma once
 namespace Offsets
 {
+// Updated by overhead1752
+// Updated by overhead1752
+// Updated by overhead1752
+// Updated by overhead1752
 	constexpr auto State = 0xA51CD40;
 	constexpr auto Key = 0xA51CD78;
 	constexpr auto static_load_object = 0x4015310; // updated 
@@ -9,6 +13,7 @@ namespace Offsets
 	constexpr auto decrypt_wide = 0x3D905B0; // updated 
 	constexpr auto decrypt_non_wide = 0x3D90540; // updated 
 	constexpr auto set_ares_outline_mode = 0x5A65670; // updated 
+// Updated by overhead1752
 	constexpr auto make_render_state_dirty = 0x5A0FED0; // updated 
 	constexpr auto ProcessEvent = 0x40001C0; // updated 
 	constexpr auto bone_matrix = 0x5AB66D0; // updated 
@@ -18,6 +23,7 @@ namespace Offsets
 	constexpr auto get_firing_location = 0x3399B40;
 	constexpr auto get_spread_values_fn = 0x2DEA490;
 	constexpr auto get_spread_angles_fn = 0x35D7E20;
+// Updated by overhead1752
 	constexpr auto to_vector_and_normalize_fn = 0x3D10520; // updated 
 	constexpr auto to_angle_and_normalize_fn = 0x3D0CD10; // updated 
 	constexpr auto project_world_to_screen = 0x5BDBC20; // updated 
