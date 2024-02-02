@@ -2,17 +2,17 @@
 #include "Alignments.h"
 #include "FNamePool.h"
 #include "decryption.h" 
-#include <Windows.h> 
+#include <Windows.h> // Updated by overhead1752
 #include <string>
 
-
+// Updated by overhead1752
 uint64 BaseAddress = (uint64)GetModuleHandleA(0);
 class FNamePool* NamePoolData = nullptr;
 #define DecryptWideOffset 0x3D905B0
 #define DecryptNonWideOffset 0x3D90540
 #define NamePoolDataOffset 0xA2E4D40
-
-
+// Updated by overhead1752
+// Updated by overhead1752
 static constexpr uint32 FNameMaxBlockBits = 13;
 static constexpr uint32 FNameBlockOffsetBits = 16;
 static constexpr uint32 FNameMaxBlocks = 1 << FNameMaxBlockBits;
@@ -58,7 +58,7 @@ struct FNameEntryHandle
 	FNameEntryHandle(FNameEntryId Id)
 		: Block(Id.ToUnstableInt() >> FNameBlockOffsetBits)
 		, Offset(Id.ToUnstableInt()& (FNameBlockOffsets - 1))
-	{}
+	{}// Updated by overhead1752
 
 	operator FNameEntryId() const
 	{
@@ -67,7 +67,7 @@ struct FNameEntryHandle
 
 	explicit operator bool() const { return Block | Offset; }
 };
-
+// Updated by overhead1752
 struct FNameEntryHeader
 {
 	uint16 bIsWide : 1;
