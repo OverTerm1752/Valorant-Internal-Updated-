@@ -17,6 +17,7 @@ void DrawTextRGB(UCanvas* canvas, const wchar_t* text, float x, float y, FLinear
 {
 	canvas->K2_DrawText(text, { x, y }, { 1.1, 1.1 }, color, 0.f, { 0, 0, 0, 1 }, { 0, 0 }, CenterX, 0, bOutline, { 0, 0, 0, 1 });
 }
+// Updated by overhead1752
 void DrawTextRGBWithFString(UCanvas* canvas, FString text, float x, float y, FLinearColor color, bool CenterX = 0)
 {
 	canvas->K2_DrawText(text, { x, y }, { 1.1, 1.1 }, color, 0.f, { 0, 0, 0, 1 }, { 0, 0 }, CenterX, 0, bOutline, { 0, 0, 0, 1 });
@@ -58,10 +59,10 @@ static bool drawfov = false;
 int KEKWNOKEY;
 static float radius = 100.0f;
 static float fovchangur = 80.0f;
-
+// Updated by overhead1752
 float ESPThickness = 1.0f;
 float Lineamount = 500.0f;
-
+// Updated by overhead1752
 //Updated Valorant Internal By Bizzy You Need To Verify Dll Once BUILT
 void DrawBox(UCanvas* can, FVector2D& topleft, FVector2D& downright, FLinearColor clr)
 {
@@ -138,7 +139,7 @@ void FMath::SinCos(float* ScalarSin, float* ScalarCos, float Value)
 	{
 		sign = +1.0f;
 	}
-
+// Updated by overhead1752
 	float y2 = y * y;
 
 	// 11-degree minimax approximation
@@ -191,7 +192,7 @@ FVector FTransform::TransformPosition(FVector& V) const
 {
 	return Rotation.RotateVector(Scale3D * V) + Translation;
 }
-
+// Updated by overhead1752
 FVector FQuat::RotateVector(const FVector& V) const
 {
 	const FVector Q(X, Y, Z);
@@ -199,7 +200,7 @@ FVector FQuat::RotateVector(const FVector& V) const
 	const FVector Result = V + (T * W) + (Q ^ T);
 	return Result;
 }
-
+// Updated by overhead1752
 bool a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18;
 void  Draw3DBox(UCanvas* _this, APlayerController* plc, FVector origin, FVector extends, FLinearColor col)
 {
@@ -265,7 +266,7 @@ bool Render3DBox(APlayerController* controller, UCanvas* Engine, const FVector& 
 			auto& vec = vertex[k][i];
 			vec = Transform.TransformPosition(vec) + origin;
 			if (!controller->ProjectWorldLocationToScreen(vec, screen[k][i], false)) return false;
-		}
+		// Updated by overhead1752}
 
 	}
 
@@ -372,14 +373,14 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 		{
 			if (BaseTeamComponent::IsAlly(Actor, MyShooter))
 				continue;
-		}
+		}// Updated by overhead1752
 
 		USkeletalMeshComponent* Mesh = Actor->GetPawnMesh();
 		bool IsAlive = Actor->IsAlive();
 
 
 		if (Mesh && IsAlive)
-		{
+		{// Updated by overhead1752
 			CWINGui::TextCenter(skCrypt(L"ENEMY NEARBY"), { 1920,30 }, RGBtoFLC(255, 0, 0), 1, 1);
 			FLinearColor MainColor;
 			if (MyController->LineOfSightTo(Actor, { 0,0,0 }, false))
@@ -518,24 +519,23 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 					}
 				}
 			}
-
+// Updated by overhead1752
 			if (ChamsESP)
 			{
 				Mesh->SetAresOutlineMode(EAresOutlineMode::Outline, true);
 				AresOutlineRendering::SetOutlineColorsForRender(World, MainESPColor, MainESPColor);
 			}
-			else
+			else// Updated by overhead1752
 			{
 				Mesh->SetAresOutlineMode(EAresOutlineMode::None, true);
 			}
 
-		}
-	}
+		}// Updated by overhead1752
+	}// Updated by overhead1752
 
 	return pRender(_this, canvas);
-}
+}// Updated by overhead1752
 
-//Updated Valorant Internal By Bizzy You Need To Verify Dll Once BUILT
 
 void Init()
 {
