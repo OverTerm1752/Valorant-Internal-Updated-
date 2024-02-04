@@ -602,7 +602,7 @@ void PostRender(uintptr_t _this, UCanvas* canvas)
 
 				if (memory) // SHIT AIMBOT
 				{
-		// Updated by overhead1752			static AShooterCharacter* closestEnemy = nullptr;
+					static AShooterCharacter* closestEnemy = nullptr;
 					static float closestDistance = 999999.9f;
 					if (closestEnemy)
 					{
